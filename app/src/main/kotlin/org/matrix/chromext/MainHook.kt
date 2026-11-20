@@ -45,6 +45,7 @@ val supportedPackages =
         "org.greatfire.freebrowser",
         "org.triple.banana",
         "us.spotco.mulch",
+        "app.yttrium.browser",
     )
 
 class MainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
