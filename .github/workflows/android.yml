@@ -40,6 +40,14 @@ jobs:
       if: ${{ ( github.event_name != 'pull_request' && github.ref == 'refs/heads/master' ) || github.ref_type == 'tag' }}
       run: mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/ChromeXt.apk
 
+    - name: Upload
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      with:
+        name: ChromeXt.apk
+        path: app/build/outputs/apk/release/ChromeXt.apk
+        retention-days: 14
+        overwrite: true
+        archive: false
 
     - uses: noriban/sign-android-release@master
       if: ${{ ( github.event_name != 'pull_request' && github.ref == 'refs/heads/master' ) || github.ref_type == 'tag' }}
